@@ -1,0 +1,448 @@
+[main] INFO org.mongodb.driver.cluster - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+[cluster-ClusterId{value='5b7cc10452b8154a4ab7368b', description='null'}-localhost:27017] INFO org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:5}] to localhost:27017
+[cluster-ClusterId{value='5b7cc10452b8154a4ab7368b', description='null'}-localhost:27017] INFO org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 0]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, roundTripTimeNanos=819367}
+Starting the simple server on port 6543...
+[pool-1-thread-1] INFO org.jooq.Constants - 
+                                      
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@  @@@@  @@  @@    @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@    @@  @@  @@@@  @@@@@@@@@@
+@@@@@@@@@@        @@  @  @  @@@@@@@@@@
+@@@@@@@@@@        @@        @@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@  @@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  Thank you for using jOOQ 3.8.4
+                                      
+org.jooq.exception.DataAccessException: SQL [select Project.id, Project.name, Project.author, Project.description, Project.created from Project]; [SQLITE_ERROR] SQL error or missing database (no such table: Project)
+	at org.jooq.impl.Tools.translate(Tools.java:1941)
+	at org.jooq.impl.DefaultExecuteContext.sqlException(DefaultExecuteContext.java:659)
+	at org.jooq.impl.AbstractQuery.execute(AbstractQuery.java:362)
+	at org.jooq.impl.AbstractResultQuery.fetch(AbstractResultQuery.java:312)
+	at org.jooq.impl.SelectImpl.fetch(SelectImpl.java:2705)
+	at edu.mit.csail.db.ml.server.storage.ProjectDao.getProjectOverviews(ProjectDao.java:120)
+	at edu.mit.csail.db.ml.server.ModelDbServer.lambda$getProjectOverviews$40(ModelDbServer.java:248)
+	at edu.mit.csail.db.ml.util.ExceptionWrapper.run(ExceptionWrapper.java:42)
+	at edu.mit.csail.db.ml.server.ModelDbServer.getProjectOverviews(ModelDbServer.java:248)
+	at modeldb.ModelDBService$Processor$getProjectOverviews.getResult(ModelDBService.java:4466)
+	at modeldb.ModelDBService$Processor$getProjectOverviews.getResult(ModelDBService.java:4450)
+	at org.apache.thrift.ProcessFunction.process(ProcessFunction.java:39)
+	at org.apache.thrift.TBaseProcessor.process(TBaseProcessor.java:39)
+	at org.apache.thrift.server.TThreadPoolServer$WorkerProcess.run(TThreadPoolServer.java:286)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: Project)
+	at org.sqlite.core.DB.newSQLException(DB.java:909)
+	at org.sqlite.core.DB.newSQLException(DB.java:921)
+	at org.sqlite.core.DB.throwex(DB.java:886)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:127)
+	at org.sqlite.core.DB.prepare(DB.java:227)
+	at org.sqlite.core.CorePreparedStatement.<init>(CorePreparedStatement.java:41)
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.<init>(JDBC3PreparedStatement.java:30)
+	at org.sqlite.jdbc4.JDBC4PreparedStatement.<init>(JDBC4PreparedStatement.java:19)
+	at org.sqlite.jdbc4.JDBC4Connection.prepareStatement(JDBC4Connection.java:48)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:254)
+	at org.sqlite.jdbc3.JDBC3Connection.prepareStatement(JDBC3Connection.java:226)
+	at org.jooq.impl.ProviderEnabledConnection.prepareStatement(ProviderEnabledConnection.java:112)
+	at org.jooq.impl.SettingsEnabledConnection.prepareStatement(SettingsEnabledConnection.java:76)
+	at org.jooq.impl.AbstractResultQuery.prepare(AbstractResultQuery.java:231)
+	at org.jooq.impl.AbstractQuery.execute(AbstractQuery.java:320)
+	... 14 more
+
+> modeldb-vis@0.0.0 start /opt/modeldb-web
+> node ./bin/www
+
+[0mGET /projects [36m304 [0m33.215 ms - -[0m
+[0mGET /css/style.css [36m304 [0m2.292 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m0.880 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m1.571 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m0.459 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m1.103 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m1.179 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m1.382 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.540 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m124.350 ms - -[0m
+[0mGET /projects [36m304 [0m20.629 ms - -[0m
+[0mGET /css/style.css [36m304 [0m1.133 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m2.445 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m1.554 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m1.088 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m0.539 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m2.224 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m8.706 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.543 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m93.624 ms - -[0m
+[0mGET /projects [32m200 [0m64.637 ms - 3472[0m
+[0mGET /css/style.css [36m304 [0m0.990 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m0.736 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.538 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m0.992 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m0.549 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m0.739 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m4.873 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.713 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m164.271 ms - -[0m
+[0mGET /projects/2/ms [32m200 [0m197.988 ms - 2[0m
+[0mGET /ejs/tooltip.ejs [32m200 [0m4.366 ms - 335[0m
+[0mGET /projects/2/models [32m200 [0m4.911 ms - 10050[0m
+[0mGET /css/lib/component.css [32m200 [0m6.053 ms - 17948[0m
+[0mGET /css/models.css [32m200 [0m5.348 ms - 14451[0m
+[0mGET /js/lib/jquery-ui.min.js [32m200 [0m2.448 ms - 253668[0m
+[0mGET /js/lib/d3.min.js [32m200 [0m3.601 ms - 151725[0m
+[0mGET /js/lib/vega.js [32m200 [0m4.643 ms - 636998[0m
+[0mGET /css/style.css [36m304 [0m0.560 ms - -[0m
+[0mGET /css/lib/pretty-json.css [32m200 [0m1.168 ms - 858[0m
+[0mGET /css/lib/vis-tooltip.css [32m200 [0m0.858 ms - 960[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.561 ms - -[0m
+[0mGET /js/lib/vega-embed.js [32m200 [0m2.314 ms - 29734[0m
+[0mGET /js/lib/vega-lite.js [32m200 [0m2.063 ms - 267321[0m
+[0mGET /js/lib/datalib.min.js [32m200 [0m1.169 ms - 84138[0m
+[0mGET /js/lib/vg-tooltip.js [32m200 [0m1.424 ms - 27711[0m
+[0mGET /js/lib/tinysort.min.js [32m200 [0m0.915 ms - 4497[0m
+[0mGET /js/lib/underscore-min.js [32m200 [0m0.975 ms - 15626[0m
+[0mGET /js/lib/backbone-min.js [32m200 [0m0.905 ms - 19999[0m
+[0mGET /js/lib/pretty-json-min.js [32m200 [0m1.663 ms - 5803[0m
+[0mGET /js/annotations.js [32m200 [0m0.854 ms - 2660[0m
+[0mGET /js/models.js [32m200 [0m0.867 ms - 42463[0m
+[0mGET /js/models_handlers.js [32m200 [0m1.369 ms - 9647[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m0.520 ms - -[0m
+[0mGET /js/util.js [32m200 [0m1.063 ms - 1048[0m
+[0mGET /js/tooltip.js [36m304 [0m0.742 ms - -[0m
+[0mGET /images/charts.png [32m200 [0m2.172 ms - 1193[0m
+[0mGET /images/loading.gif [32m200 [0m1.982 ms - 1524229[0m
+[0mGET /images/data.png [32m200 [0m1.322 ms - 1876[0m
+[0mGET /images/send.png [32m200 [0m1.087 ms - 4085[0m
+[0mGET /projects/2 [32m200 [0m9.483 ms - 109[0m
+[0mGET /projects/2/ms [36m304 [0m15.681 ms - -[0m
+[0mGET /ejs/tooltip.ejs [36m304 [0m0.520 ms - -[0m
+[0mGET /projects [32m200 [0m17.443 ms - 5612[0m
+[0mGET /css/style.css [36m304 [0m1.419 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m1.445 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m2.477 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m1.330 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m1.186 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m1.151 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m0.582 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.345 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m174.160 ms - -[0m
+[0mGET /projects/3/ms [32m200 [0m206.308 ms - 2[0m
+[0mGET /projects/2/ms [36m304 [0m227.458 ms - -[0m
+[0mGET /projects/4/ms [32m200 [0m278.717 ms - 2[0m
+[0mGET /ejs/tooltip.ejs [36m304 [0m0.327 ms - -[0m
+[0mGET /projects [32m200 [0m10.925 ms - 6681[0m
+[0mGET /css/style.css [36m304 [0m0.562 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m1.313 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.499 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m1.055 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m1.068 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m1.056 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m1.190 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.491 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m71.414 ms - -[0m
+[0mGET /projects/2/ms [36m304 [0m88.189 ms - -[0m
+[0mGET /projects/5/ms [32m200 [0m94.573 ms - 2[0m
+[0mGET /projects/3/ms [36m304 [0m101.185 ms - -[0m
+[0mGET /projects/4/ms [36m304 [0m108.715 ms - -[0m
+[0mGET /ejs/tooltip.ejs [36m304 [0m0.372 ms - -[0m
+[0mGET /projects [36m304 [0m8.853 ms - -[0m
+[0mGET /css/style.css [36m304 [0m0.625 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m1.365 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.616 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m1.508 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m1.492 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m0.521 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m0.758 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.591 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m79.827 ms - -[0m
+[0mGET /projects/2/ms [36m304 [0m248.287 ms - -[0m
+[0mGET /projects/3/ms [36m304 [0m249.792 ms - -[0m
+[0mGET /projects/4/ms [36m304 [0m293.654 ms - -[0m
+[0mGET /projects/5/ms [36m304 [0m293.141 ms - -[0m
+[0mGET /ejs/tooltip.ejs [36m304 [0m0.366 ms - -[0m
+[0mGET /projects/2/models [36m304 [0m3.272 ms - -[0m
+[0mGET /css/lib/vis-tooltip.css [36m304 [0m0.520 ms - -[0m
+[0mGET /css/lib/pretty-json.css [36m304 [0m3.121 ms - -[0m
+[0mGET /css/style.css [36m304 [0m3.156 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m3.167 ms - -[0m
+[0mGET /css/lib/component.css [36m304 [0m2.586 ms - -[0m
+[0mGET /js/lib/jquery-ui.min.js [36m304 [0m1.028 ms - -[0m
+[0mGET /css/models.css [36m304 [0m0.494 ms - -[0m
+[0mGET /js/lib/d3.min.js [36m304 [0m0.498 ms - -[0m
+[0mGET /js/lib/vega.js [36m304 [0m4.312 ms - -[0m
+[0mGET /js/lib/vega-lite.js [36m304 [0m4.359 ms - -[0m
+[0mGET /js/lib/vega-embed.js [36m304 [0m4.312 ms - -[0m
+[0mGET /js/lib/datalib.min.js [36m304 [0m4.318 ms - -[0m
+[0mGET /js/lib/vg-tooltip.js [36m304 [0m4.350 ms - -[0m
+[0mGET /js/lib/tinysort.min.js [36m304 [0m3.964 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m3.998 ms - -[0m
+[0mGET /js/lib/underscore-min.js [36m304 [0m1.092 ms - -[0m
+[0mGET /js/lib/backbone-min.js [36m304 [0m0.551 ms - -[0m
+[0mGET /js/lib/pretty-json-min.js [36m304 [0m9.322 ms - -[0m
+[0mGET /js/util.js [36m304 [0m9.463 ms - -[0m
+[0mGET /js/annotations.js [36m304 [0m9.510 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m0.747 ms - -[0m
+[0mGET /js/models.js [36m304 [0m0.471 ms - -[0m
+[0mGET /js/models_handlers.js [36m304 [0m0.472 ms - -[0m
+[0mGET /images/loading.gif [36m304 [0m0.417 ms - -[0m
+[0mGET /images/charts.png [36m304 [0m0.441 ms - -[0m
+[0mGET /images/data.png [36m304 [0m0.442 ms - -[0m
+[0mGET /images/send.png [36m304 [0m0.453 ms - -[0m
+[0mGET /projects/2 [36m304 [0m5.748 ms - -[0m
+[0mGET /projects/2/ms [36m304 [0m203.471 ms - -[0m
+[0mGET /projects [32m200 [0m6.987 ms - 7724[0m
+[0mGET /css/style.css [36m304 [0m0.484 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m0.504 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m1.273 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m1.332 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m1.400 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m0.968 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m1.003 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.345 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m74.763 ms - -[0m
+[0mGET /projects/2/ms [36m304 [0m250.835 ms - -[0m
+[0mGET /projects/3/ms [36m304 [0m264.103 ms - -[0m
+[0mGET /projects/4/ms [36m304 [0m276.064 ms - -[0m
+[0mGET /projects/5/ms [36m304 [0m302.982 ms - -[0m
+[0mGET /projects/6/ms [32m200 [0m464.802 ms - 2[0m
+[0mGET /projects/6/models [32m200 [0m2.054 ms - 10050[0m
+[0mGET /css/lib/vis-tooltip.css [36m304 [0m0.637 ms - -[0m
+[0mGET /css/lib/component.css [36m304 [0m0.529 ms - -[0m
+[0mGET /css/lib/pretty-json.css [36m304 [0m0.974 ms - -[0m
+[0mGET /css/style.css [36m304 [0m3.626 ms - -[0m
+[0mGET /css/models.css [36m304 [0m3.822 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.521 ms - -[0m
+[0mGET /js/lib/jquery-ui.min.js [36m304 [0m0.537 ms - -[0m
+[0mGET /js/lib/d3.min.js [36m304 [0m0.447 ms - -[0m
+[0mGET /js/lib/vega.js [36m304 [0m3.124 ms - -[0m
+[0mGET /js/lib/vega-lite.js [36m304 [0m3.125 ms - -[0m
+[0mGET /js/lib/vega-embed.js [36m304 [0m2.724 ms - -[0m
+[0mGET /js/lib/datalib.min.js [36m304 [0m2.709 ms - -[0m
+[0mGET /js/lib/vg-tooltip.js [36m304 [0m0.511 ms - -[0m
+[0mGET /js/lib/tinysort.min.js [36m304 [0m1.515 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m1.825 ms - -[0m
+[0mGET /js/lib/underscore-min.js [36m304 [0m0.645 ms - -[0m
+[0mGET /js/lib/backbone-min.js [36m304 [0m0.668 ms - -[0m
+[0mGET /js/lib/pretty-json-min.js [36m304 [0m0.955 ms - -[0m
+[0mGET /js/util.js [36m304 [0m2.264 ms - -[0m
+[0mGET /js/annotations.js [36m304 [0m1.465 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m1.695 ms - -[0m
+[0mGET /js/models.js [36m304 [0m4.500 ms - -[0m
+[0mGET /js/models_handlers.js [36m304 [0m0.986 ms - -[0m
+[0mGET /images/loading.gif [36m304 [0m0.973 ms - -[0m
+[0mGET /images/charts.png [36m304 [0m0.970 ms - -[0m
+[0mGET /images/data.png [36m304 [0m0.372 ms - -[0m
+[0mGET /images/send.png [36m304 [0m0.385 ms - -[0m
+[0mGET /projects/6 [32m200 [0m6.875 ms - 109[0m
+[0mGET /projects/6/ms [36m304 [0m220.912 ms - -[0m
+[0mGET /projects [32m200 [0m6.661 ms - 2437[0m
+[0mGET /css/style.css [36m304 [0m4.081 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m4.183 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m3.898 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m2.586 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m16.220 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m17.758 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m19.369 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.373 ms - -[0m
+[0mGET /projects/1/ms [32m200 [0m125.721 ms - 2[0m
+[0mGET /projects/1/models [32m200 [0m2.851 ms - 10050[0m
+[0mGET /css/lib/vis-tooltip.css [36m304 [0m0.895 ms - -[0m
+[0mGET /css/models.css [36m304 [0m0.918 ms - -[0m
+[0mGET /css/lib/component.css [36m304 [0m0.524 ms - -[0m
+[0mGET /css/style.css [36m304 [0m0.486 ms - -[0m
+[0mGET /css/lib/pretty-json.css [36m304 [0m1.403 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.463 ms - -[0m
+[0mGET /js/lib/d3.min.js [36m304 [0m0.441 ms - -[0m
+[0mGET /js/lib/vega.js [36m304 [0m0.688 ms - -[0m
+[0mGET /js/lib/vega-lite.js [36m304 [0m0.529 ms - -[0m
+[0mGET /js/lib/jquery-ui.min.js [36m304 [0m1.137 ms - -[0m
+[0mGET /js/lib/vg-tooltip.js [36m304 [0m1.126 ms - -[0m
+[0mGET /js/lib/vega-embed.js [36m304 [0m1.103 ms - -[0m
+[0mGET /js/lib/datalib.min.js [36m304 [0m3.144 ms - -[0m
+[0mGET /js/lib/tinysort.min.js [36m304 [0m19.922 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m6.210 ms - -[0m
+[0mGET /js/lib/underscore-min.js [36m304 [0m7.624 ms - -[0m
+[0mGET /js/lib/backbone-min.js [36m304 [0m4.417 ms - -[0m
+[0mGET /js/lib/pretty-json-min.js [36m304 [0m3.535 ms - -[0m
+[0mGET /js/util.js [36m304 [0m1.172 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m1.815 ms - -[0m
+[0mGET /js/annotations.js [36m304 [0m1.751 ms - -[0m
+[0mGET /js/models.js [36m304 [0m1.706 ms - -[0m
+[0mGET /js/models_handlers.js [36m304 [0m1.695 ms - -[0m
+[0mGET /images/loading.gif [36m304 [0m0.966 ms - -[0m
+[0mGET /images/charts.png [36m304 [0m0.766 ms - -[0m
+[0mGET /images/data.png [36m304 [0m0.462 ms - -[0m
+[0mGET /images/send.png [36m304 [0m0.416 ms - -[0m
+[0mGET /projects/1 [32m200 [0m3.314 ms - 109[0m
+[0mGET /projects/1/ms [36m304 [0m121.463 ms - -[0m
+[0mGET /projects [32m200 [0m6.657 ms - 3473[0m
+[0mGET /css/style.css [36m304 [0m1.428 ms - -[0m
+[0mGET /css/projects.css [36m304 [0m0.510 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.529 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m0.433 ms - -[0m
+[0mGET /js/lib/jquery.hideseek.min.js [36m304 [0m0.872 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m0.929 ms - -[0m
+[0mGET /js/projects.js [36m304 [0m0.455 ms - -[0m
+[0mGET /images/loading2.gif [36m304 [0m0.454 ms - -[0m
+[0mGET /projects/1/ms [36m304 [0m109.773 ms - -[0m
+[0mGET /projects/2/ms [32m200 [0m143.978 ms - 738[0m
+[0mGET /projects/2/models [36m304 [0m1.808 ms - -[0m
+[0mGET /css/lib/vis-tooltip.css [36m304 [0m0.509 ms - -[0m
+[0mGET /css/lib/component.css [36m304 [0m0.490 ms - -[0m
+[0mGET /css/lib/pretty-json.css [36m304 [0m1.075 ms - -[0m
+[0mGET /css/style.css [36m304 [0m4.194 ms - -[0m
+[0mGET /css/models.css [36m304 [0m4.239 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m4.165 ms - -[0m
+[0mGET /js/lib/jquery-ui.min.js [36m304 [0m3.289 ms - -[0m
+[0mGET /js/lib/d3.min.js [36m304 [0m3.447 ms - -[0m
+[0mGET /js/lib/vega-lite.js [36m304 [0m9.626 ms - -[0m
+[0mGET /js/lib/vg-tooltip.js [36m304 [0m1.125 ms - -[0m
+[0mGET /js/lib/vega.js [36m304 [0m4.051 ms - -[0m
+[0mGET /js/lib/vega-embed.js [36m304 [0m5.239 ms - -[0m
+[0mGET /js/lib/datalib.min.js [36m304 [0m5.882 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m5.907 ms - -[0m
+[0mGET /js/lib/tinysort.min.js [36m304 [0m0.978 ms - -[0m
+[0mGET /js/lib/underscore-min.js [36m304 [0m1.109 ms - -[0m
+[0mGET /js/lib/backbone-min.js [36m304 [0m0.313 ms - -[0m
+[0mGET /js/lib/pretty-json-min.js [36m304 [0m0.553 ms - -[0m
+[0mGET /js/util.js [36m304 [0m1.024 ms - -[0m
+[0mGET /js/annotations.js [36m304 [0m0.868 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m0.598 ms - -[0m
+[0mGET /js/models.js [36m304 [0m1.293 ms - -[0m
+[0mGET /js/models_handlers.js [36m304 [0m1.291 ms - -[0m
+[0mGET /images/loading.gif [36m304 [0m0.923 ms - -[0m
+[0mGET /images/charts.png [36m304 [0m1.268 ms - -[0m
+[0mGET /images/data.png [36m304 [0m0.354 ms - -[0m
+[0mGET /images/send.png [36m304 [0m0.492 ms - -[0m
+[0mGET /projects/2 [32m200 [0m4.385 ms - 102[0m
+[0mGET /projects/2/ms [36m304 [0m33.979 ms - -[0m
+[0mGET /ejs/model.ejs [32m200 [0m2.666 ms - 6104[0m
+{ id: 24,
+  experimentRunId: 2,
+  experimentId: 2,
+  projectId: 2,
+  trainingDataFrame: 
+   { id: 19,
+     schema: [ [Object], [Object] ],
+     numRows: -1,
+     tag: '',
+     filepath: null,
+     metadata: [] },
+  specification: 
+   { id: 9,
+     transformerType: 'Pipeline',
+     hyperparameters: [],
+     tag: 'sample libsvm pipeline' },
+  problemType: 1,
+  featureColumns: [ 'features', 'label' ],
+  labelColumns: [ '' ],
+  predictionColumns: 
+   [ 'indexedLabel',
+     'indexedFeatures',
+     'prediction',
+     'rawPrediction',
+     'predictedLabel' ],
+  metrics: 
+   [ { key: 'fMeasure', val: 0.934 },
+     { key: 'precision', val: 0.934 },
+     { key: 'recall', val: 0.934 } ],
+  annotations: [],
+  sha: null,
+  filepath: '2018-11-12 19:47:51.0',
+  timestamp: null,
+  linearModelData: null,
+  metadata: '',
+  show: true }
+[0mGET /models/24/card [32m200 [0m35.233 ms - 3110[0m
+[0mGET /projects/2/models [36m304 [0m5.302 ms - -[0m
+[0mGET /css/lib/component.css [36m304 [0m0.938 ms - -[0m
+[0mGET /css/lib/vis-tooltip.css [36m304 [0m0.631 ms - -[0m
+[0mGET /css/lib/pretty-json.css [36m304 [0m0.532 ms - -[0m
+[0mGET /css/models.css [36m304 [0m0.631 ms - -[0m
+[0mGET /css/style.css [36m304 [0m1.439 ms - -[0m
+[0mGET /js/lib/d3.min.js [36m304 [0m1.447 ms - -[0m
+[0mGET /js/lib/vega.js [36m304 [0m0.565 ms - -[0m
+[0mGET /js/lib/jquery-1.12.4.min.js [36m304 [0m0.477 ms - -[0m
+[0mGET /js/lib/vega-embed.js [36m304 [0m1.834 ms - -[0m
+[0mGET /js/lib/jquery-ui.min.js [36m304 [0m1.891 ms - -[0m
+[0mGET /js/lib/datalib.min.js [36m304 [0m1.877 ms - -[0m
+[0mGET /js/lib/vega-lite.js [36m304 [0m1.837 ms - -[0m
+[0mGET /js/lib/vg-tooltip.js [36m304 [0m0.387 ms - -[0m
+[0mGET /js/lib/ejs_production.js [36m304 [0m0.653 ms - -[0m
+[0mGET /js/lib/underscore-min.js [36m304 [0m2.993 ms - -[0m
+[0mGET /js/lib/tinysort.min.js [36m304 [0m2.994 ms - -[0m
+[0mGET /js/lib/backbone-min.js [36m304 [0m2.973 ms - -[0m
+[0mGET /js/lib/pretty-json-min.js [36m304 [0m3.101 ms - -[0m
+[0mGET /js/util.js [36m304 [0m3.077 ms - -[0m
+[0mGET /js/annotations.js [36m304 [0m0.704 ms - -[0m
+[0mGET /js/tooltip.js [36m304 [0m1.239 ms - -[0m
+[0mGET /js/models.js [36m304 [0m1.226 ms - -[0m
+[0mGET /js/models_handlers.js [36m304 [0m1.267 ms - -[0m
+[0mGET /images/loading.gif [36m304 [0m0.868 ms - -[0m
+[0mGET /images/charts.png [36m304 [0m0.448 ms - -[0m
+[0mGET /images/data.png [36m304 [0m0.423 ms - -[0m
+[0mGET /images/send.png [36m304 [0m0.524 ms - -[0m
+/opt/modeldb-web/node_modules/thrift/lib/nodejs/lib/thrift/connection.js:171
+        throw e;
+        ^
+
+TypeError: Cannot read property 'length' of undefined
+    at /opt/modeldb-web/util/api.js:91:32
+    at client._reqs.(anonymous function) (/opt/modeldb-web/node_modules/thrift/lib/nodejs/lib/thrift/connection.js:151:13)
+    at exports.Client.ModelDBServiceClient.recv_getProjectOverviews (/opt/modeldb-web/thrift/ModelDBService.js:9989:12)
+    at /opt/modeldb-web/node_modules/thrift/lib/nodejs/lib/thrift/connection.js:157:41
+    at Socket.<anonymous> (/opt/modeldb-web/node_modules/thrift/lib/nodejs/lib/thrift/framed_transport.js:60:7)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! modeldb-vis@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the modeldb-vis@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-11-13T02_53_04_520Z-debug.log
+
+> modeldb-vis@0.0.0 start /opt/modeldb-web
+> node ./bin/www
+
+Port 3000 is already in use
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! modeldb-vis@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the modeldb-vis@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-11-13T02_57_25_329Z-debug.log
+
+> modeldb-vis@0.0.0 start /opt/modeldb-web
+> node ./bin/www
+
+Port 3000 is already in use
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! modeldb-vis@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the modeldb-vis@0.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-11-13T03_28_31_430Z-debug.log
